@@ -1,5 +1,8 @@
-<mat-accordion multi="true" *ngIf="posts.length > 0">
-  <mat-expansion-panel *ngFor="let post of posts">
+@if (posts.length > 0) {
+<mat-accordion multi="true">
+
+  @for (post of posts; track $index) {
+  <mat-expansion-panel>
     <mat-expansion-panel-header>
       {{ post.title }}
     </mat-expansion-panel-header>
@@ -9,5 +12,8 @@
       <button mat-button color="warn">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
+  }
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>
+}@else {
+<p class="info-text mat-body-1">No posts added yet!</p>
+}

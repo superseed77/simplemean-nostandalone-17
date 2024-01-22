@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {  MatInputModule} from '@angular/material/input';
 import {  MatCardModule} from '@angular/material/card';
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,

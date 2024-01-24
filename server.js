@@ -1,8 +1,13 @@
 const http = require('http');
+const app = require('./backend/app')
 
-const server = http.createServer( (req, res) => {
-    res.end('I am fucking good')
-})
+const port = process.env.PORT || 3000
+const server = http.createServer( app)
 
-// server.listen(process.env.PORT || 3000)
-server.listen(3000)
+server.listen(port)
+
+
+// const server = http.createServer( (req, res) => {
+//     res.end('I am fucking good')
+// })
+// server.listen(3000)

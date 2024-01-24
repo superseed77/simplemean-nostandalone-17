@@ -1,8 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser")
-const app = express();
-
 const Post = require('./models/post')
+const mongoose = require('mongoose')
+
+const app = express();
+mongoose.connect('mongodb+srv://creachyann:PHx19m4f04cYEGjL@cluster0.sqgldfc.mongodb.net/?retryWrites=true&w=majority')
+.then(() => console.log('Connected to atlas DB'))
+.catch(()=> console.log('Connection failed'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false})) //only standard encoding

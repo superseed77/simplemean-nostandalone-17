@@ -1,13 +1,16 @@
-const { log } = require('@angular-devkit/build-angular/src/builders/ssr-dev-server');
-const express = require('express')
+const express = require("express");
 const app = express();
-app.use((req, res, next) =>{
-    console.log('middleware call')
-    next()
-})
 
-app.use((req, res, next) =>{
-   res.send('Hello, it is me')
-})
+app.use("/api/posts", (req, res, next) => {
+  const posts = [
+    { id: "id", title: "title", content: "form express" },
+    { id: "id2", title: "title2", content: "form express2" },
+  ];
 
-module.exports = app
+  res.status(200).json({
+    message: "Posts from server",
+    posts: posts,
+  });
+});
+
+module.exports = app;

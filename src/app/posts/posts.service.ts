@@ -16,15 +16,14 @@ export class PostsService {
       .get<{ message: string; posts: any }>(
         'http://localhost:3000/api/posts'
       ).pipe(
-        map(data =>{
-         return data.posts.map((post: any) =>{
+        map(data => data.posts.map((post: any) =>{
             return {
               id: post._id,
               title: post.title,
               content: post.content
             }
           })
-        })
+        )
       )
       .subscribe(mappedPosts => {
         this.posts = mappedPosts;
@@ -46,5 +45,14 @@ export class PostsService {
         this.posts.push(post);
         this.postsUpdated.next([...this.posts]);
       });
+  }
+
+  deletePost(id:string){
+    this.http.delete('http://localhost:3000/api/posts/'+id)
+    .subscribe( () =>{
+      const updatedPosts = this.posts.filter(p => p.id != id)
+      this.posts = updatedPosts
+      this.postsUpdated.next([...this.posts])
+    })
   }
 }

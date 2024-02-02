@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const Post = require("./models/post");
 const mongoose = require("mongoose");
 
@@ -11,8 +11,10 @@ mongoose
   .then(() => console.log("Connected to atlas DB"))
   .catch(() => console.log("Connection failed"));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false })); //only standard encoding
+  // Pour parser les corps de requêtes JSON
+app.use(express.json());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false })); //only standard encoding
 
 // middleware
 app.use((req, res, next) => {

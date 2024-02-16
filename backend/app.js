@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 mongoose
   .connect(
-    "mongodb+srv://creachyann:PHx19m4f04cYEGjL@cluster0.sqgldfc.mongodb.net/simplemeandb?retryWrites=true&w=majority"
+    "mongodb+srv://user:password@cluster0.sqgldfc.mongodb.net/simplemeandb?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected to atlas DB"))
   .catch(() => console.log("Connection failed"));

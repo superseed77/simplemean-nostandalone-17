@@ -27,7 +27,7 @@ export class PostsService {
       )
       .subscribe(mappedPosts => {
         this.posts = mappedPosts;
-        console.log(`les posts : ${JSON.stringify(this.posts)}`);
+        console.log(`les posts : ${this.posts}`);
         this.postsUpdated.next([...this.posts]);
       });
   }
